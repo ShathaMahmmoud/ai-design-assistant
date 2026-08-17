@@ -13,10 +13,13 @@ def main():
 
     prompt = build_user_prompt(user_input)
 
-    brief = generate_response(prompt)
+    try:
+        brief = generate_response(prompt)
+    except Exception:
+        print("حدث خطأ أثناء تحليل الطلب. حاول مرة أخرى.")
+        return
 
     formatted_brief = format_brief(brief)
-
     print(formatted_brief)
 
 
